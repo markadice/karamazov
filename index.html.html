@@ -1,0 +1,167 @@
+html<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Иван Карамазов — ВКонтакте</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #edeef0;
+    color: #000;
+    padding: 20px;
+  }
+  .container { max-width: 700px; margin: 0 auto; }
+  .card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .profile-header { padding: 20px; display: flex; gap: 20px; }
+  
+  /* НАДЁЖНЫЕ СТИЛИ ДЛЯ ВСТРОЕННЫХ АВАТАРОК */
+  .avatar {
+    width: 120px; height: 120px; border-radius: 50%;
+    flex-shrink: 0;
+    border: 3px solid #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  }
+  .post-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .comment-avatar {
+    width: 32px; height: 32px; border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .comment-reply .comment-avatar { width: 28px; height: 28px; }
+
+  .profile-info h1 { font-size: 22px; margin-bottom: 4px; }
+  .profile-info .status {
+    color: #626d7a; font-size: 14px; margin-bottom: 12px; font-style: italic;
+  }
+  .profile-info .meta { font-size: 14px; color: #626d7a; line-height: 1.7; }
+  .profile-info .meta b { color: #000; }
+  .counters {
+    display: flex; gap: 24px; margin-top: 12px;
+    padding-top: 12px; border-top: 1px solid #e7e8ec;
+  }
+  .counter { text-align: center; }
+  .counter .num { font-weight: 600; font-size: 16px; }
+  .counter .label { font-size: 12px; color: #939393; }
+  .post { padding: 16px 20px; }
+  .post-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  
+  .post-author { font-weight: 600; font-size: 14px; }
+  .post-date { font-size: 12px; color: #939393; }
+  .post-text { font-size: 14px; line-height: 1.5; margin-bottom: 12px; white-space: pre-line; }
+  .post-text em { color: #626d7a; }
+  .post-actions {
+    display: flex; gap: 20px; padding-top: 10px;
+    border-top: 1px solid #e7e8ec; font-size: 13px; color: #626d7a;
+  }
+  .post-actions .liked { color: #e64646; font-weight: 600; }
+  .comments {
+    background: #f7f8fa; padding: 12px 20px; border-top: 1px solid #e7e8ec;
+  }
+  .comment { display: flex; gap: 10px; margin-bottom: 12px; }
+  .comment:last-child { margin-bottom: 0; }
+  
+  .comment-body { font-size: 13px; line-height: 1.4; }
+  .comment-author { font-weight: 600; color: #2a5885; }
+  .comment-text { margin-top: 2px; }
+  .comment-reply { margin-left: 42px; margin-top: 8px; }
+  .like-small { color: #939393; font-size: 12px; margin-left: 4px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ШАПКА -->
+  <div class="card">
+    <div class="profile-header">
+      <!-- Аватар Ивана -->
+      <img class="avatar" src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 100 100'><rect width='100' height='100' fill='%232c3e50'/><circle cx='50' cy='42' r='18' fill='%23ecf0f1'/><path d='M25 85c0-15 10-25 25-25s25 10 25 25z' fill='%23ecf0f1'/></svg>" alt="Иван">
+      <div class="profile-info">
+        <h1>Иван Карамазов</h1>
+        <div class="status">Если Бога нет, то всё позволено. Но если всё позволено, то зачем я это пишу?</div>
+        <div class="meta">
+          <div>📍 <b>Скотопригоньевск</b> · Не женат · В активном поиске смысла</div>
+          <div>🎓 Московский университет, естественный факультет</div>
+          <div>💬 Языки: русский, французский, латынь, язык внутреннего спора</div>
+        </div>
+        <div class="counters">
+          <div class="counter"><div class="num">1 880</div><div class="label">подписчики</div></div>
+          <div class="counter"><div class="num">4</div><div class="label">друзья</div></div>
+          <div class="counter"><div class="num">66</div><div class="label">фото</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ПОСТ 1 -->
+  <div class="card">
+    <div class="post">
+      <div class="post-header">
+        <img class="post-avatar" src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 100 100'><rect width='100' height='100' fill='%232c3e50'/><circle cx='50' cy='42' r='18' fill='%23ecf0f1'/><path d='M25 85c0-15 10-25 25-25s25 10 25 25z' fill='%23ecf0f1'/></svg>" alt="Иван">
+        <div>
+          <div class="post-author">Иван Карамазов</div>
+          <div class="post-date">сегодня в 03:14</div>
+        </div>
+      </div>
+      <div class="post-text">Придумал поэму про Великого инквизитора. Отправил в литжурнал. Отказали.
+
+Сказали: «Слишком мрачно». Мрачно?! Я же про любовь! Про любовь к человечеству! Про то, что свобода — это страдание!
+
+Ладно, напишу ещё мрачнее. Пусть попробуют отказать.</div>
+      <div class="post-actions">
+        <span class="liked">❤️ 333</span>
+        <span>💬 3</span>
+        <span>↗️ Поделиться</span>
+      </div>
+    </div>
+    
+    <!-- КОММЕНТАРИИ -->
+    <div class="comments">
+      <div class="comment">
+        <!-- Аватар Алёши -->
+        <img class="comment-avatar" src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f39c12'/><circle cx='50' cy='42' r='18' fill='%23fff5e6'/><path d='M25 85c0-15 10-25 25-25s25 10 25 25z' fill='%23fff5e6'/></svg>" alt="Алёша">
+        <div class="comment-body">
+          <div class="comment-author">Алёша Карамазов</div>
+          <div class="comment-text">Ваня, может, на исповедь?</div>
+          <span class="like-small">❤️ 14</span>
+        </div>
+      </div>
+      <div class="comment comment-reply">
+        <img class="comment-avatar" src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 100 100'><rect width='100' height='100' fill='%232c3e50'/><circle cx='50' cy='42' r='18' fill='%23ecf0f1'/><path d='M25 85c0-15 10-25 25-25s25 10 25 25z' fill='%23ecf0f1'/></svg>" alt="Иван">
+        <div class="comment-body">
+          <div class="comment-author">Иван Карамазов</div>
+          <div class="comment-text">Алёша, я не верю в исповедь. Но если ты настаиваешь, я приду. Но не верю. Но приду. Но не верю.</div>
+          <span class="like-small">❤️ 42</span>
+        </div>
+      </div>
+      <div class="comment">
+        <!-- Аватар Чёрта -->
+        <img class="comment-avatar" src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c0392b'/><circle cx='50' cy='45' r='16' fill='%23f1c40f'/><path d='M25 85c0-15 10-25 25-25s25 10 25 25z' fill='%23f1c40f'/><polygon points='38,34 32,20 46,28' fill='%23f1c40f'/><polygon points='62,34 68,20 54,28' fill='%23f1c40f'/></svg>" alt="Чёрт">
+        <div class="comment-body">
+          <div class="comment-author">Чёрт</div>
+          <div class="comment-text">Привет, я тут. В гости зайду?</div>
+          <span class="like-small">❤️ 66</span>
+        </div>
+      </div>
+      <div class="comment comment-reply">
+        <img class="comment-avatar" src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 100 100'><rect width='100' height='100' fill='%232c3e50'/><circle cx='50' cy='42' r='18' fill='%23ecf0f1'/><path d='M25 85c0-15 10-25 25-25s25 10 25 25z' fill='%23ecf0f1'/></svg>" alt="Иван">
+        <div class="comment-body">
+          <div class="comment-author">Иван Карамазов</div>
+          <div class="comment-text">Нет. Да. Нет. Приходи. Уходи.</div>
+          <span class="like-small">❤️ 88</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
