@@ -1,4 +1,4 @@
-html<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
@@ -21,22 +21,34 @@ html<!DOCTYPE html>
   }
   .profile-header { padding: 20px; display: flex; gap: 20px; }
   
-  /* НАДЁЖНЫЕ СТИЛИ ДЛЯ ВСТРОЕННЫХ АВАТАРОК */
+  /* СТИЛИ ПУЛЕСТОЙКИХ АВАТАРОК */
   .avatar {
     width: 120px; height: 120px; border-radius: 50%;
-    flex-shrink: 0;
-    border: 3px solid #fff;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    background: #2a5885; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 44px; font-weight: bold; flex-shrink: 0;
+    border: 3px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.2);
   }
   .post-avatar {
     width: 40px; height: 40px; border-radius: 50%;
-    flex-shrink: 0;
+    color: #fff; display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 600; flex-shrink: 0;
   }
   .comment-avatar {
     width: 32px; height: 32px; border-radius: 50%;
-    flex-shrink: 0;
+    color: #fff; display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 600; flex-shrink: 0;
   }
-  .comment-reply .comment-avatar { width: 28px; height: 28px; }
+  .comment-reply .comment-avatar { width: 28px; height: 28px; font-size: 11px; }
+
+  /* ЦВЕТА ПЕРСОНАЖЕЙ */
+  .bg-ivan { background: #2c3e50; }
+  .bg-alesha { background: #f39c12; }
+  .bg-chert { background: #111111; }
+  .bg-smerd { background: #7f8c8d; }
+  .bg-katya { background: #9b59b6; }
+  .bg-grusha { background: #e84393; }
+  .bg-mitya { background: #d35400; }
 
   .profile-info h1 { font-size: 22px; margin-bottom: 4px; }
   .profile-info .status {
@@ -51,39 +63,66 @@ html<!DOCTYPE html>
   .counter { text-align: center; }
   .counter .num { font-weight: 600; font-size: 16px; }
   .counter .label { font-size: 12px; color: #939393; }
+  
   .post { padding: 16px 20px; }
   .post-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-  
-  .post-author { font-weight: 600; font-size: 14px; }
+  .post-author { font-weight: 600; font-size: 14px; color: #2a5885; }
   .post-date { font-size: 12px; color: #939393; }
   .post-text { font-size: 14px; line-height: 1.5; margin-bottom: 12px; white-space: pre-line; }
-  .post-text em { color: #626d7a; }
+  
+  .repost-block {
+    background: #f7f8fa; border-left: 3px solid #2a5885;
+    padding: 10px 14px; margin-bottom: 12px; border-radius: 4px; font-size: 13.5px;
+  }
+  .repost-block .repost-header { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .repost-block .repost-author { font-weight: 600; color: #2a5885; font-size: 13px; }
+
   .post-actions {
     display: flex; gap: 20px; padding-top: 10px;
     border-top: 1px solid #e7e8ec; font-size: 13px; color: #626d7a;
   }
   .post-actions .liked { color: #e64646; font-weight: 600; }
-  .comments {
-    background: #f7f8fa; padding: 12px 20px; border-top: 1px solid #e7e8ec;
+  
+  /* ОПРОС */
+  .poll { background: #f7f8fa; border-radius: 8px; padding: 14px; margin-bottom: 12px; }
+  .poll-question { font-weight: 600; font-size: 14px; margin-bottom: 10px; }
+  .poll-option {
+    background: #fff; border: 1px solid #e7e8ec; border-radius: 6px;
+    margin-bottom: 6px; font-size: 13px; position: relative; overflow: hidden; height: 34px;
   }
+  .poll-fill { background: #dae2ea; height: 100%; transition: width 0.3s; position: absolute; left: 0; top: 0; z-index: 1; }
+  .poll-text-wrapper { position: absolute; width: 100%; height: 100%; top: 0; left: 0; display: flex; justify-content: space-between; align-items: center; padding: 0 12px; z-index: 2; }
+  .poll-option .pct { color: #626d7a; font-weight: 500; }
+  
+  .comments { background: #f7f8fa; padding: 12px 20px; border-top: 1px solid #e7e8ec; }
   .comment { display: flex; gap: 10px; margin-bottom: 12px; }
   .comment:last-child { margin-bottom: 0; }
-  
   .comment-body { font-size: 13px; line-height: 1.4; }
   .comment-author { font-weight: 600; color: #2a5885; }
   .comment-text { margin-top: 2px; }
   .comment-reply { margin-left: 42px; margin-top: 8px; }
-  .like-small { color: #939393; font-size: 12px; margin-left: 4px; }
+  .like-small { color: #939393; font-size: 12px; margin-left: 4px; display: block; margin-top: 4px; }
+  
+  .section-title { padding: 16px 20px 8px; font-size: 13px; font-weight: 600; color: #626d7a; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #edeef0; }
+  .story-container { padding: 16px 20px; display: flex; gap: 12px; overflow-x: auto; }
+  .story-card { background: #2c3e50; border-radius: 8px; padding: 12px; color: #fff; font-size: 12px; min-width: 140px; height: 180px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: inset 0 -40px 40px rgba(0,0,0,0.6); }
+  .story-date { font-size: 10px; opacity: 0.6; }
+  
+  .groups { padding: 10px 20px; }
+  .group { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
+  .group:last-child { border-bottom: none; }
+  .group-icon { width: 40px; height: 40px; border-radius: 8px; background: #e7e8ec; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+  .group-name { font-size: 14px; font-weight: 500; color: #2a5885; }
+  .group-subs { font-size: 12px; color: #939393; }
 </style>
 </head>
 <body>
 <div class="container">
 
-  <!-- ШАПКА -->
+  <!-- ШАПКА ПРОФИЛЯ -->
   <div class="card">
     <div class="profile-header">
-      <!-- Аватар Ивана -->
-      <img class="avatar" src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 100 100'><rect width='100' height='100' fill='%232c3e50'/><circle cx='50' cy='42' r='18' fill='%23ecf0f1'/><path d='M25 85c0-15 10-25 25-25s25 10 25 25z' fill='%23ecf0f1'/></svg>" alt="Иван">
+      <div class="avatar bg-ivan">ИК</div>
       <div class="profile-info">
         <h1>Иван Карамазов</h1>
         <div class="status">Если Бога нет, то всё позволено. Но если всё позволено, то зачем я это пишу?</div>
@@ -101,20 +140,37 @@ html<!DOCTYPE html>
     </div>
   </div>
 
-  <!-- ПОСТ 1 -->
+  <!-- БЛОК СТОРИС -->
+  <div class="card">
+    <div class="section-title">Истории</div>
+    <div class="story-container">
+      <div class="story-card">
+        <span class="story-date">40 мин. назад</span>
+        <p>«Ночь. Стол. Два стакана. Один — мой. Второй — для того, кого нет...»</p>
+      </div>
+      <div class="story-card" style="background:#34495e;">
+        <span class="story-date">5 часов назад</span>
+        <p>«Перечитал поэму. Плакал. Не поэму жалко — себя. Шучу.»</p>
+      </div>
+      <div class="story-card" style="background:#1a252f;">
+        <span class="story-date">вчера</span>
+        <p>«Смотрел на портрет отца. Долго. Потом отвернулся.»</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ПОСТ 1: Поэма -->
   <div class="card">
     <div class="post">
       <div class="post-header">
-        <img class="post-avatar" src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 100 100'><rect width='100' height='100' fill='%232c3e50'/><circle cx='50' cy='42' r='18' fill='%23ecf0f1'/><path d='M25 85c0-15 10-25 25-25s25 10 25 25z' fill='%23ecf0f1'/></svg>" alt="Иван">
+        <div class="post-avatar bg-ivan">ИК</div>
         <div>
           <div class="post-author">Иван Карамазов</div>
           <div class="post-date">сегодня в 03:14</div>
         </div>
       </div>
       <div class="post-text">Придумал поэму про Великого инквизитора. Отправил в литжурнал. Отказали.
-
 Сказали: «Слишком мрачно». Мрачно?! Я же про любовь! Про любовь к человечеству! Про то, что свобода — это страдание!
-
 Ладно, напишу ещё мрачнее. Пусть попробуют отказать.</div>
       <div class="post-actions">
         <span class="liked">❤️ 333</span>
@@ -122,12 +178,9 @@ html<!DOCTYPE html>
         <span>↗️ Поделиться</span>
       </div>
     </div>
-    
-    <!-- КОММЕНТАРИИ -->
     <div class="comments">
       <div class="comment">
-        <!-- Аватар Алёши -->
-        <img class="comment-avatar" src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f39c12'/><circle cx='50' cy='42' r='18' fill='%23fff5e6'/><path d='M25 85c0-15 10-25 25-25s25 10 25 25z' fill='%23fff5e6'/></svg>" alt="Алёша">
+        <div class="comment-avatar bg-alesha">АК</div>
         <div class="comment-body">
           <div class="comment-author">Алёша Карамазов</div>
           <div class="comment-text">Ваня, может, на исповедь?</div>
@@ -135,7 +188,7 @@ html<!DOCTYPE html>
         </div>
       </div>
       <div class="comment comment-reply">
-        <img class="comment-avatar" src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 100 100'><rect width='100' height='100' fill='%232c3e50'/><circle cx='50' cy='42' r='18' fill='%23ecf0f1'/><path d='M25 85c0-15 10-25 25-25s25 10 25 25z' fill='%23ecf0f1'/></svg>" alt="Иван">
+        <div class="comment-avatar bg-ivan">ИК</div>
         <div class="comment-body">
           <div class="comment-author">Иван Карамазов</div>
           <div class="comment-text">Алёша, я не верю в исповедь. Но если ты настаиваешь, я приду. Но не верю. Но приду. Но не верю.</div>
@@ -143,8 +196,7 @@ html<!DOCTYPE html>
         </div>
       </div>
       <div class="comment">
-        <!-- Аватар Чёрта -->
-        <img class="comment-avatar" src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c0392b'/><circle cx='50' cy='45' r='16' fill='%23f1c40f'/><path d='M25 85c0-15 10-25 25-25s25 10 25 25z' fill='%23f1c40f'/><polygon points='38,34 32,20 46,28' fill='%23f1c40f'/><polygon points='62,34 68,20 54,28' fill='%23f1c40f'/></svg>" alt="Чёрт">
+        <div class="comment-avatar bg-chert">Ч</div>
         <div class="comment-body">
           <div class="comment-author">Чёрт</div>
           <div class="comment-text">Привет, я тут. В гости зайду?</div>
@@ -152,7 +204,7 @@ html<!DOCTYPE html>
         </div>
       </div>
       <div class="comment comment-reply">
-        <img class="comment-avatar" src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 100 100'><rect width='100' height='100' fill='%232c3e50'/><circle cx='50' cy='42' r='18' fill='%23ecf0f1'/><path d='M25 85c0-15 10-25 25-25s25 10 25 25z' fill='%23ecf0f1'/></svg>" alt="Иван">
+        <div class="comment-avatar bg-ivan">ИК</div>
         <div class="comment-body">
           <div class="comment-author">Иван Карамазов</div>
           <div class="comment-text">Нет. Да. Нет. Приходи. Уходи.</div>
@@ -162,6 +214,15 @@ html<!DOCTYPE html>
     </div>
   </div>
 
-</div>
-</body>
-</html>
+  <!-- ПОСТ 2: Смердяков -->
+  <div class="card">
+    <div class="post">
+      <div class="post-header">
+        <div class="post-avatar bg-ivan">ИК</div>
+        <div>
+          <div class="post-author">Иван Карамазов</div>
+          <div class="post-date">вчера в 23:58</div>
+        </div>
+      </div>
+      <div class="post-text">Спросил у Смердякова, убил ли он отца. Он сказал: «Вы же сами учили, Иван Фёдорович». Я сказал: «Я учил теоретически». Он сказал: «А я убил практически». Я сказал: «Это не то, что я имел в виду». Он сказал: «Поздно». 
+Вот так поговорили. Завтра, наверное, ещё поговорим. Или нет. Или да. Или нет.</div>
