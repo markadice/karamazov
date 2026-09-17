@@ -5,9 +5,17 @@
 <title>Иван Карамазов — ВКонтакте</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #edeef0; color: #000; padding: 20px; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #edeef0; color: #000; padding: 68px 20px 20px; }
+  .top-header { background: #ffffff; height: 48px; border-bottom: 1px solid #e7e8ec; position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; display: flex; align-items: center; justify-content: center; }
+  .header-content { max-width: 960px; width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; }
+  .header-left { display: flex; align-items: center; gap: 20px; }
+  .header-logo { display: flex; align-items: center; gap: 6px; font-weight: bold; font-size: 16px; color: #000; text-decoration: none; }
+  .logo-icon { background: #0077ff; color: #fff; width: 24px; height: 24px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; }
+  .header-search { background: #edeef0; border: none; border-radius: 8px; padding: 6px 12px 6px 28px; font-size: 13px; width: 230px; outline: none; }
+  .header-right { display: flex; align-items: center; gap: 16px; font-size: 18px; }
+  .header-mini-avatar { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; }
   .wrapper { max-width: 960px; margin: 0 auto; display: flex; gap: 20px; }
-  .left-menu { width: 180px; flex-shrink: 0; position: sticky; top: 20px; height: fit-content; }
+  .left-menu { width: 180px; flex-shrink: 0; position: sticky; top: 68px; height: fit-content; }
   .menu-item { display: flex; align-items: center; justify-content: space-between; padding: 6px 8px; font-size: 14px; color: #000; text-decoration: none; border-radius: 6px; margin-bottom: 2px; }
   .menu-item:hover { background: #e4e5e7; }
   .menu-left { display: flex; align-items: center; gap: 10px; }
@@ -58,24 +66,41 @@
 </style>
 </head>
 <body>
-<div class="wrapper">
 
-  <div class="left-menu">
-    <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">👤</span>Профиль</div></a>
-    <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">📰</span>Лента</div></a>
-    <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">💬</span>Мессенджер</div><span class="menu-badge">13</span></a>
-    <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">📞</span>Звонки</div></a>
-    <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">👥</span>Друзья</div><span class="menu-badge">4</span></a>
-    <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">👨‍👩‍👧‍👦</span>Сообщества</div><span class="menu-badge">6</span></a>
-    <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">🖼️</span>Фото</div><span class="menu-badge">66</span></a>
-    <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">🎵</span>Музыка</div></a>
-    <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">🎥</span>Видео</div></a>
-    <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">🎮</span>Игры</div><span class="menu-badge">20</span></a>
-    <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">🛒</span>Маркет</div></a>
-    <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">💎</span>Голоса</div></a>
+  <div class="top-header">
+    <div class="header-content">
+      <div class="header-left">
+        <a href="#" class="header-logo"><div class="logo-icon">вс</div>всовести</a>
+        <div style="position: relative;">
+          <span style="position: absolute; left: 10px; top: 6px; color: #818c99; font-size: 13px;">🔍</span>
+          <input type="text" class="header-search" placeholder="Поиск смысла жизни...">
+        </div>
+      </div>
+      <div class="header-right">
+        <span style="cursor:pointer; position:relative;">🔔<span style="position:absolute; top:-4px; right:-6px; background:#ef4242; color:#fff; font-size:10px; border-radius:10px; padding:1px 4px; font-weight:600;">2</span></span>
+        <span style="cursor:pointer;">🎵</span>
+        <img class="header-mini-avatar" src="ivan.jpg" alt="Иван">
+      </div>
+    </div>
   </div>
 
-  <div class="main-content">
+  <div class="wrapper">
+    <div class="left-menu">
+      <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">👤</span>Профиль</div></a>
+      <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">📰</span>Лента</div></a>
+      <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">💬</span>Мессенджер</div><span class="menu-badge">13</span></a>
+      <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">📞</span>Звонки</div></a>
+      <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">👥</span>Друзья</div><span class="menu-badge">4</span></a>
+      <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">👨‍👩‍👧‍👦</span>Сообщества</div><span class="menu-badge">6</span></a>
+      <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">🖼️</span>Фото</div><span class="menu-badge">66</span></a>
+      <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">🎵</span>Музыка</div></a>
+      <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">🎥</span>Видео</div></a>
+      <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">🎮</span>Игры</div><span class="menu-badge">20</span></a>
+      <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">🛒</span>Маркет</div></a>
+      <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">💎</span>Голоса</div></a>
+    </div>
+
+    <div class="main-content">
     <div class="card">
       <div class="profile-header">
         <img class="avatar" src="ivan.jpg" alt="Иван">
@@ -292,7 +317,7 @@
         <div class="group"><div class="group-icon">🧠</div><div><div class="group-name">Если Бога нет — что дальше?</div><div class="group-subs">1 880 подписчиков</div></div></div>
         <div class="group"><div class="group-icon">👹</div><div><div class="group-name">Чёрт в деталях: как распознать</div><div class="group-subs">666 подписчиков</div></div></div>
         <div class="group"><div class="group-icon">📜</div><div><div class="group-name">Великий инквизитор — читать онлайн</div><div class="group-subs">1 565 подписчиков</div></div></div>
-        <div class="group"><div class="group-icon">🍷</div><div><div class="group-name">Русская тоска: club по интересам</div><div class="group-subs">40 000 подписчиков</div></div></div>
+        <div class="group"><div class="group-icon">🍷</div><div><div class="group-name">Русская тоска: клуб по интересам</div><div class="group-subs">40 000 подписчиков</div></div></div>
         <div class="group"><div class="group-icon">⚖</div><div><div class="group-name">Теория «всё позволено»: за и против</div><div class="group-subs">0 подписчиков (все передумали)</div></div></div>
         <div class="group"><div class="group-icon">🐑</div><div><div class="group-name">Бессонница: считаем овец вместе</div><div class="group-subs">100 подписчиков (на 101-й все ушли)</div></div></div>
       </div>
