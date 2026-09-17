@@ -6,7 +6,14 @@
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #edeef0; color: #000; padding: 20px; }
-  .container { max-width: 700px; margin: 0 auto; }
+  .wrapper { max-width: 960px; margin: 0 auto; display: flex; gap: 20px; }
+  .left-menu { width: 180px; flex-shrink: 0; position: sticky; top: 20px; height: fit-content; }
+  .menu-item { display: flex; align-items: center; justify-content: space-between; padding: 6px 8px; font-size: 14px; color: #000; text-decoration: none; border-radius: 6px; margin-bottom: 2px; }
+  .menu-item:hover { background: #e4e5e7; }
+  .menu-left { display: flex; align-items: center; gap: 10px; }
+  .menu-icon { font-size: 16px; width: 20px; text-align: center; color: #2a5885; }
+  .menu-badge { background: #e1e5eb; color: #4c6680; font-size: 12px; font-weight: 500; padding: 1px 6px; border-radius: 10px; }
+  .main-content { flex-grow: 1; max-width: 700px; }
   .card { background: #fff; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 12px; overflow: hidden; }
   .profile-header { padding: 20px; display: flex; gap: 20px; }
   .avatar { width: 120px; height: 120px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.2); object-fit: cover; flex-shrink: 0; }
@@ -16,15 +23,13 @@
   .profile-info h1 { font-size: 22px; margin-bottom: 4px; }
   .profile-info .status { color: #626d7a; font-size: 14px; margin-bottom: 12px; font-style: italic; }
   .profile-info .meta { font-size: 14px; color: #626d7a; line-height: 1.7; }
-  .profile-info .meta b { color: #000; }
   .counters { display: flex; gap: 24px; margin-top: 12px; padding-top: 12px; border-top: 1px solid #e7e8ec; }
   .counter { text-align: center; } .counter .num { font-weight: 600; font-size: 16px; } .counter .label { font-size: 12px; color: #939393; }
   .post { padding: 16px 20px; } .post-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-  .post-author { font-weight: 600; font-size: 14px; color: #2a5885; text-decoration: none; }
-  .post-date { font-size: 12px; color: #939393; }
+  .post-author { font-weight: 600; font-size: 14px; color: #2a5885; text-decoration: none; } .post-date { font-size: 12px; color: #939393; }
   .post-text { font-size: 14px; line-height: 1.5; margin-bottom: 12px; white-space: pre-line; }
   .post-actions { display: flex; gap: 20px; padding-top: 10px; border-top: 1px solid #e7e8ec; font-size: 13px; color: #626d7a; }
-  .like-btn { cursor: pointer; user-select: none; }
+  .like-btn { cursor: pointer; user-select: none; display: flex; align-items: center; gap: 4px; }
   .comments { background: #f7f8fa; padding: 12px 20px; border-top: 1px solid #e7e8ec; }
   .comment { display: flex; gap: 10px; margin-bottom: 12px; } .comment-body { font-size: 13px; line-height: 1.4; width: 100%; }
   .comment-author { font-weight: 600; color: #2a5885; text-decoration: none; } .comment-reply { margin-left: 42px; margin-top: 8px; }
@@ -53,250 +58,247 @@
 </style>
 </head>
 <body>
-<div class="container">
+<div class="wrapper">
 
-  <!-- ШАПКА ПРОФИЛЯ -->
-  <div class="card">
-    <div class="profile-header">
-      <img class="avatar" src="ivan.jpg" alt="Иван">
-      <div class="profile-info">
-        <h1>Иван Карамазов</h1>
-        <div class="status">Если Бога нет, то всё позволено. Но если всё позволено, то зачем я это пишу?</div>
-        <div class="meta">
-          <div>📍 <b>Скотопригоньевск</b> · Не женат · В активном поиске смысла</div>
-          <div>🎓 Московский университет, естественный факультет</div>
-          <div>💬 Языки: русский, французский, латынь, язык внутреннего спора</div>
-        </div>
-        <div class="counters">
-          <div class="counter"><div class="num">1 880</div><div class="label">подписчики</div></div>
-          <div class="counter"><div class="num">4</div><div class="label">друзья</div></div>
-          <div class="counter"><div class="num">66</div><div class="label">фото</div></div>
-        </div>
-      </div>
-    </div>
+  <div class="left-menu">
+    <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">👤</span>Профиль</div></a>
+    <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">📰</span>Лента</div></a>
+    <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">💬</span>Мессенджер</div><span class="menu-badge">13</span></a>
+    <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">📞</span>Звонки</div></a>
+    <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">👥</span>Друзья</div><span class="menu-badge">4</span></a>
+    <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">👨‍👩‍👧‍👦</span>Сообщества</div><span class="menu-badge">6</span></a>
+    <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">🖼️</span>Фото</div><span class="menu-badge">66</span></a>
+    <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">🎵</span>Музыка</div></a>
+    <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">🎥</span>Видео</div></a>
+    <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">🎮</span>Игры</div><span class="menu-badge">20</span></a>
+    <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">🛒</span>Маркет</div></a>
+    <a href="#" class="menu-item"><div class="menu-left"><span class="menu-icon">💎</span>Голоса</div></a>
   </div>
 
-  <!-- ИСТОРИИ -->
-  <div class="card">
-    <div class="section-title">Истории</div>
-    <div class="story-container">
-      <div class="story-card" style="background-image: url('story1.jpg');">
-        <span style="opacity:0.7; font-size:9px;">40 минут назад</span>
-        <p style="text-shadow: 1px 1px 2px #000;">«Ночь. Стол. Два стакана. Один — мой. Второй — для того, кого нет. Пью за обоих.»</p>
-      </div>
-      <div class="story-card" style="background-image: url('story2.jpg');">
-        <span style="opacity:0.7; font-size:9px;">5 часов назад</span>
-        <p style="text-shadow: 1px 1px 2px #000;">«Перечитал поэму. Плакал. Не поэму жалко — себя. Шучу. Не шучу. Шучу.»</p>
-      </div>
-      <div class="story-card" style="background-image: url('story3.jpg');">
-        <span style="opacity:0.7; font-size:9px;">вчера</span>
-        <p style="text-shadow: 1px 1px 2px #000;">«Смотрел на портрет отца. Долго. Потом отвернулся. Потом снова посмотрел. Потом ушёл.»</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ПОСТ 1 -->
-  <div class="card">
-    <div class="post">
-      <div class="post-header">
-        <img class="post-avatar" src="ivan.jpg" alt="Иван">
-        <div><div class="post-author">Иван Карамазов</div><div class="post-date">сегодня в 03:14</div></div>
-      </div>
-      <div class="post-text">Придумал поэму про Великого инквизитора. Отправил в литжурнал. Отказали. Сказали: «Слишком мрачно». Мрачно?! Я же про любовь! Про любовь к человечеству! Про то, что свобода — это страдание! Ладно, напишу ещё мрачнее. Пусть попробуют отказать.</div>
-      <div class="post-actions">
-        <span class="like-btn" data-count="333">❤️ <span class="like-count">333</span></span>
-        <span>💬 3</span><span>↗ Поделиться</span>
-      </div>
-    </div>
-    <div class="comments">
-      <div class="comment">
-        <img class="comment-avatar" src="alesha.jpg" alt="Алёша">
-        <div class="comment-body"><div class="comment-author">Алёша Карамазов</div><div class="comment-text">Ваня, может, на исповедь?</div><span class="like-small">❤️ 14</span></div>
-      </div>
-      <div class="comment comment-reply">
-        <img class="comment-avatar" src="ivan.jpg" alt="Иван">
-        <div class="comment-body"><div class="comment-author">Иван Карамазов</div><div class="comment-text">Алёша, я не верю в исповедь. Но если ты настаиваешь, я приду. Но не верю. Но приду. Но не верю.</div><span class="like-small">❤️ 42</span></div>
-      </div>
-      <div class="comment">
-        <img class="comment-avatar" src="chert.jpg" alt="Чёрт">
-        <div class="comment-body"><div class="comment-author">Чёрт</div><div class="comment-text">Привет, я тут. В гости зайду?</div><span class="like-small">❤️ 66</span></div>
-      </div>
-      <div class="comment comment-reply">
-        <img class="comment-avatar" src="ivan.jpg" alt="Иван">
-        <div class="comment-body"><div class="comment-author">Иван Карамазов</div><div class="comment-text">Нет. Да. Нет. Приходи. Уходи.</div><span class="like-small">❤️ 88</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ПОСТ 2 -->
-  <div class="card">
-    <div class="post">
-      <div class="post-header">
-        <img class="post-avatar" src="ivan.jpg" alt="Иван">
-        <div><div class="post-author">Иван Карамазов</div><div class="post-date">вчера в 23:58</div></div>
-      </div>
-      <div class="post-text">Спросил у Смердякова, убил ли он отца. Он сказал: «Вы же сами учили, Иван Фёдорович». Я сказал: «Я учил теоретически». Он сказал: «А я убил практически». Я сказал: «Это не то, что я имел в виду». Он сказал: «Поздно». Вот так поговорили. Завтра, наверное, ещё поговорим. Или нет. Или да. Или нет.</div>
-      <div class="post-actions">
-        <span class="like-btn" data-count="512">❤️ <span class="like-count">512</span></span>
-        <span>💬 2</span><span>↗ Поделиться</span>
-      </div>
-    </div>
-    <div class="comments">
-      <div class="comment">
-        <img class="comment-avatar" src="katya.jpg" alt="Катя">
-        <div class="comment-body"><div class="comment-author">Катерина Ивановна</div><div class="comment-text">Иван Фёдорович, вы где?</div><span class="like-small">❤️ 9</span></div>
-      </div>
-      <div class="comment comment-reply">
-        <img class="comment-avatar" src="ivan.jpg" alt="Иван">
-        <div class="comment-body"><div class="comment-author">Иван Карамазов</div><div class="comment-text">Я в аду. Но это метафора. Но не совсем.</div><span class="like-small">❤️ 51</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ПОСТ 3 -->
-  <div class="card">
-    <div class="post">
-      <div class="post-header">
-        <img class="post-avatar" src="ivan.jpg" alt="Иван">
-        <div><div class="post-author">Иван Карамазов</div><div class="post-date">вчера в 19:40</div></div>
-      </div>
-      <div class="post-text">Устроил опрос среди знакомых. Результаты предсказуемы, но всё равно интересно.</div>
-      <div class="poll">
-        <div class="poll-question">Если Бога нет, то всё позволено?</div>
-        <div class="poll-option">
-          <div class="poll-fill" style="width: 47%;"></div>
-          <div class="poll-text-wrapper"><span>Да, и это ужасно</span><span>47%</span></div>
-        </div>
-        <div class="poll-option">
-          <div class="poll-fill" style="width: 31%;"></div>
-          <div class="poll-text-wrapper"><span>Да, и это свобода</span><span>31%</span></div>
-        </div>
-        <div class="poll-option">
-          <div class="poll-fill" style="width: 22%;"></div>
-          <div class="poll-text-wrapper"><span>Нет, Бог есть</span><span>22%</span></div>
+  <div class="main-content">
+    <div class="card">
+      <div class="profile-header">
+        <img class="avatar" src="ivan.jpg" alt="Иван">
+        <div class="profile-info">
+          <h1>Иван Карамазов</h1>
+          <div class="status">Если Бога нет, то всё позволено. Но если всё позволено, то зачем я это пишу?</div>
+          <div class="meta">
+            <div>📍 <b>Скотопригоньевск</b> · Не женат · В активном поиске смысла</div>
+            <div>🎓 Московский университет, естественный факультет</div>
+            <div>💬 Языки: русский, французский, латынь, язык внутреннего спора</div>
+          </div>
+          <div class="counters">
+            <div class="counter"><div class="num">1 880</div><div class="label">подписчики</div></div>
+            <div class="counter"><div class="num">4</div><div class="label">друзья</div></div>
+            <div class="counter"><div class="num">66</div><div class="label">фото</div></div>
+          </div>
         </div>
       </div>
-      <div class="post-actions">
-        <span class="like-btn" data-count="289">❤️ <span class="like-count">289</span></span>
-        <span>💬 4</span><span>↗ Поделиться</span>
-      </div>
     </div>
-    <div class="comments">
-      <div class="comment">
-        <img class="comment-avatar" src="mitya.jpg" alt="Митя">
-        <div class="comment-body"><div class="comment-author">Дмитрий Карамазов</div><div class="comment-text">Брат, ты опять философствуешь. Приезжай, выпьем.</div><span class="like-small">❤️ 18</span></div>
-      </div>
-      <div class="comment comment-reply">
-        <img class="comment-avatar" src="ivan.jpg" alt="Иван">
-        <div class="comment-body"><div class="comment-author">Иван Карамазов</div><div class="comment-text">Митя, я не пью. В смысле, пью. В смысле, приеду. В смысле, не приеду. В смысле, налейте.</div><span class="like-small">❤️ 37</span></div>
-      </div>
-      <div class="comment">
-        <img class="comment-avatar" src="grusha.jpg" alt="Грушенька">
-        <div class="comment-body"><div class="comment-author">Грушенька</div><div class="comment-text">Иван Фёдорович, вы всё о высоком, а я всё о вас думаю.</div><span class="like-small">❤️ 12</span></div>
-      </div>
-      <div class="comment comment-reply">
-        <img class="comment-avatar" src="ivan.jpg" alt="Иван">
-        <div class="comment-body"><div class="comment-author">Иван Карамазов</div><div class="comment-text">Грушенька, не надо обо мне. Я этого не выдержу. В смысле, выдержу. В смысле, не надо.</div><span class="like-small">❤️ 44</span></div>
-      </div>
-    </div>
-  </div>
 
-  <!-- ПОСТ 4 -->
-  <div class="card">
-    <div class="post">
-      <div class="post-header">
-        <img class="post-avatar" src="ivan.jpg" alt="Иван">
-        <div><div class="post-author">Иван Карамазов</div><div class="post-date">вчера в 14:22</div></div>
-      </div>
-      <div class="repost-block">
-        <div class="repost-header">
-          <img class="comment-avatar" src="alesha.jpg" style="width:24px;height:24px;" alt="Алёша">
-          <div class="repost-author">Алёша Карамазов</div>
+    <div class="card">
+      <div class="section-title">Истории</div>
+      <div class="story-container">
+        <div class="story-card" style="background-image: url('story1.jpg');">
+          <span style="opacity:0.7; font-size:9px;">40 минут назад</span>
+          <p style="text-shadow: 1px 1px 2px #000;">«Ночь. Стол. Два стакана. Один — мой. Второй — для того, кого нет. Пью за обоих.»</p>
         </div>
-        «Брат мой Иван сказал: "Если Бога нет, то всё позволено". Я долго думал над этим. И понял: если Бога нет, то всё позволено — но тогда зачем нам друг друг? Может, в этом и есть ответ».
-      </div>
-      <div class="post-text">Перечитал. Алёша, ты слишком добрый для этого мира. Но я тебя люблю. Не говори никому.</div>
-      <div class="post-actions">
-        <span class="like-btn" data-count="421">❤️ <span class="like-count">421</span></span>
-        <span>💬 2</span><span>↗ Поделиться</span>
-      </div>
-    </div>
-    <div class="comments">
-      <div class="comment">
-        <img class="comment-avatar" src="alesha.jpg" alt="Алёша">
-        <div class="comment-body"><div class="comment-author">Алёша Карамазов</div><div class="comment-text">Ваня, я тоже тебя люблю. И никому не скажу.</div><span class="like-small">❤️ 89</span></div>
-      </div>
-      <div class="comment">
-        <img class="comment-avatar" src="chert.jpg" alt="Чёрт">
-        <div class="comment-body"><div class="comment-author">Чёрт</div><div class="comment-text">Как трогательно. Аж прослезился. Шучу. Не прослезился.</div><span class="like-small">❤️ 53</span></div>
+        <div class="story-card" style="background-image: url('story2.jpg');">
+          <span style="opacity:0.7; font-size:9px;">5 часов назад</span>
+          <p style="text-shadow: 1px 1px 2px #000;">«Перечитал поэму. Плакал. Не поэму жалко — себя. Шучу. Не шучу. Шучу.»</p>
+        </div>
+        <div class="story-card" style="background-image: url('story3.jpg');">
+          <span style="opacity:0.7; font-size:9px;">вчера</span>
+          <p style="text-shadow: 1px 1px 2px #000;">«Смотрел на портрет отца. Долго. Потом отвернулся. Потом снова посмотрел. Потом ушёл.»</p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- ПОСТ 5 -->
-  <div class="card">
-    <div class="post">
-      <div class="post-header">
-        <img class="post-avatar" src="ivan.jpg" alt="Иван">
-        <div><div class="post-author">Иван Карамазов</div><div class="post-date">3 дня назад в 04:07</div></div>
+    <div class="card">
+      <div class="post">
+        <div class="post-header">
+          <img class="post-avatar" src="ivan.jpg" alt="Иван">
+          <div><div class="post-author">Иван Карамазов</div><div class="post-date">сегодня в 03:14</div></div>
+        </div>
+        <div class="post-text">Придумал поэму про Великого инквизитора. Отправил в литжурнал. Отказали. Сказали: «Слишком мрачно». Мрачно?! Я же про любовь! Про любовь к человечеству! Про то, что свобода — это страдание! Ладно, напишу ещё мрачнее. Пусть попробуют отказать.</div>
+        <div class="post-actions">
+          <span class="like-btn" data-count="333">❤️ <span class="like-count">333</span></span>
+          <span>💬 3</span><span>↗ Поделиться</span>
+        </div>
       </div>
-      <div class="post-text">Не могу уснуть. Считал овец — досчитал до ста. На сто первой овце она сказала: «А всё-таки Бога нет». Придётся считать заново.</div>
-      <div class="post-actions">
-        <span class="like-btn" data-count="674">❤️ <span class="like-count">674</span></span>
-        <span>💬 3</span><span>↗ Поделиться</span>
+      <div class="comments">
+        <div class="comment">
+          <img class="comment-avatar" src="alesha.jpg" alt="Алёша">
+          <div class="comment-body"><div class="comment-author">Алёша Карамазов</div><div class="comment-text">Ваня, может, на исповедь?</div><span class="like-small">❤️ 14</span></div>
+        </div>
+        <div class="comment comment-reply">
+          <img class="comment-avatar" src="ivan.jpg" alt="Иван">
+          <div class="comment-body"><div class="comment-author">Иван Карамазов</div><div class="comment-text">Алёша, я не верю в исповедь. Но если ты настаиваешь, я приду. Но не верю. Но приду. Но не верю.</div><span class="like-small">❤️ 42</span></div>
+        </div>
+        <div class="comment">
+          <img class="comment-avatar" src="chert.jpg" alt="Чёрт">
+          <div class="comment-body"><div class="comment-author">Чёрт</div><div class="comment-text">Привет, я тут. В гости зайду?</div><span class="like-small">❤️ 66</span></div>
+        </div>
+        <div class="comment comment-reply">
+          <img class="comment-avatar" src="ivan.jpg" alt="Иван">
+          <div class="comment-body"><div class="comment-author">Иван Карамазов</div><div class="comment-text">Нет. Да. Нет. Приходи. Уходи.</div><span class="like-small">❤️ 88</span></div>
+        </div>
       </div>
     </div>
-    <div class="comments">
-      <div class="comment">
-        <img class="comment-avatar" src="alesha.jpg" alt="Алёша">
-        <div class="comment-body"><div class="comment-author">Алёша Карамазов</div><div class="comment-text">Ваня, помолись и уснёшь.</div><span class="like-small">❤️ 21</span></div>
+    <div class="card">
+      <div class="post">
+        <div class="post-header">
+          <img class="post-avatar" src="ivan.jpg" alt="Иван">
+          <div><div class="post-author">Иван Карамазов</div><div class="post-date">вчера в 23:58</div></div>
+        </div>
+        <div class="post-text">Спросил у Смердякова, убил ли он отца. Он сказал: «Вы же сами учили, Иван Фёдорович». Я сказал: «Я учил теоретически». Он сказал: «А я убил практически». Я сказал: «Это не то, что я имел в виду». Он сказал: «Поздно». Вот так поговорили. Завтра, наверное, ещё поговорим. Или нет. Или да. Или нет.</div>
+        <div class="post-actions">
+          <span class="like-btn" data-count="512">❤️ <span class="like-count">512</span></span>
+          <span>💬 2</span><span>↗ Поделиться</span>
+        </div>
       </div>
-      <div class="comment comment-reply">
-        <img class="comment-avatar" src="ivan.jpg" alt="Иван">
-        <div class="comment-body"><div class="comment-author">Иван Карамазов</div><div class="comment-text">Алёша, если бы я мог молиться, я бы не считал овец.</div><span class="like-small">❤️ 76</span></div>
-      </div>
-      <div class="comment">
-        <img class="comment-avatar" src="smerdyakov.jpg" alt="Смердяков">
-        <div class="comment-body"><div class="comment-author">Смердяков</div><div class="comment-text">Вы бы, Иван Фёдорович, лучше не считали. Всё равно ничего не насчитаете.</div><span class="like-small">❤️ 8</span></div>
+      <div class="comments">
+        <div class="comment">
+          <img class="comment-avatar" src="katya.jpg" alt="Катя">
+          <div class="comment-body"><div class="comment-author">Катерина Ивановна</div><div class="comment-text">Иван Фёдорович, вы где?</div><span class="like-small">❤️ 9</span></div>
+        </div>
+        <div class="comment comment-reply">
+          <img class="comment-avatar" src="ivan.jpg" alt="Иван">
+          <div class="comment-body"><div class="comment-author">Иван Карамазов</div><div class="comment-text">Я в аду. Но это метафора. Но не совсем.</div><span class="like-small">❤️ 51</span></div>
+        </div>
+        <div class="comment">
+          <img class="comment-avatar" src="smerdyakov.jpg" alt="Смердяков">
+          <div class="comment-body"><div class="comment-author">Смердяков</div><div class="comment-text">Вы бы, Иван Фёдорович, лучше не считали. Всё равно ничего не насчитаете.</div><span class="like-small">❤️ 8</span></div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- ФОТОАЛЬБОМЫ -->
-  <div class="card">
-    <div class="section-title">Фотоальбомы</div>
-    <div class="album-container">
-      <div class="album-card">
-        <div class="album-cover" style="background-image: url('album1.jpg');"></div>
-        <div class="album-title">Москва</div>
-        <div class="album-desc">«Здесь я учился думать. Лучше бы учился молчать.»</div>
+    <div class="card">
+      <div class="post">
+        <div class="post-header">
+          <img class="post-avatar" src="ivan.jpg" alt="Иван">
+          <div><div class="post-author">Иван Карамазов</div><div class="post-date">вчера в 19:40</div></div>
+        </div>
+        <div class="post-text">Устроил опрос среди знакомых. Результаты предсказуемы, но всё равно интересно.</div>
+        <div class="poll">
+          <div class="poll-question">Если Бога нет, то всё позволено?</div>
+          <div class="poll-option">
+            <div class="poll-fill" style="width: 47%;"></div>
+            <div class="poll-text-wrapper"><span>Да, и это ужасно</span><span>47%</span></div>
+          </div>
+          <div class="poll-option">
+            <div class="poll-fill" style="width: 31%;"></div>
+            <div class="poll-text-wrapper"><span>Да, и это свобода</span><span>31%</span></div>
+          </div>
+          <div class="poll-option">
+            <div class="poll-fill" style="width: 22%;"></div>
+            <div class="poll-text-wrapper"><span>Нет, Бог есть</span><span>22%</span></div>
+          </div>
+        </div>
+        <div class="post-actions">
+          <span class="like-btn" data-count="289">❤️ <span class="like-count">289</span></span>
+          <span>💬 4</span><span>↗ Поделиться</span>
+        </div>
       </div>
-      <div class="album-card">
-        <div class="album-cover" style="background-image: url('album2.jpg');"></div>
-        <div class="album-title">Скотопригоньевск</div>
-        <div class="album-desc">«Дом отца. Дом, где всё началось и всё закончилось.»</div>
-      </div>
-      <div class="album-card">
-        <div class="album-cover" style="background-image: url('album3.jpg');"></div>
-        <div class="album-title">Рукописи</div>
-        <div class="album-desc">«Черновики поэмы. Некоторые страницы порваны. Некоторые — сожжены. Некоторые — переписаны заново. Всё как в жизни.»</div>
+      <div class="comments">
+        <div class="comment">
+          <img class="comment-avatar" src="mitya.jpg" alt="Митя">
+          <div class="comment-body"><div class="comment-author">Дмитрий Карамазов</div><div class="comment-text">Брат, ты опять философствуешь. Приезжай, выпьем.</div><span class="like-small">❤️ 18</span></div>
+        </div>
+        <div class="comment comment-reply">
+          <img class="comment-avatar" src="ivan.jpg" alt="Иван">
+          <div class="comment-body"><div class="comment-author">Иван Карамазов</div><div class="comment-text">Митя, я не пью. В смысле, пью. В смысле, приеду. В смысле, не приеду. В смысле, налейте.</div><span class="like-small">❤️ 37</span></div>
+        </div>
+        <div class="comment">
+          <img class="comment-avatar" src="grusha.jpg" alt="Грушенька">
+          <div class="comment-body"><div class="comment-author">Грушенька</div><div class="comment-text">Иван Фёдорович, вы всё о высоком, а я всё о вас думаю.</div><span class="like-small">❤️ 12</span></div>
+        </div>
+        <div class="comment comment-reply">
+          <img class="comment-avatar" src="ivan.jpg" alt="Иван">
+          <div class="comment-body"><div class="comment-author">Иван Карамазов</div><div class="comment-text">Грушенька, не надо обо мне. Я этого не выдержу. В смысле, выдержу. В смысле, не надо.</div><span class="like-small">❤️ 44</span></div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- ИНТЕРЕСНЫЕ СТРАНИЦЫ -->
-  <div class="card">
-    <div class="section-title">Интересные страницы</div>
-    <div class="groups">
-      <div class="group"><div class="group-icon">🧠</div><div><div class="group-name">Если Бога нет — что дальше?</div><div class="group-subs">1 880 подписчиков</div></div></div>
-      <div class="group"><div class="group-icon">👹</div><div><div class="group-name">Чёрт в деталях: как распознать</div><div class="group-subs">666 подписчиков</div></div></div>
-      <div class="group"><div class="group-icon">📜</div><div><div class="group-name">Великий инквизитор — читать онлайн</div><div class="group-subs">1 565 подписчиков</div></div></div>
-      <div class="group"><div class="group-icon">🍷</div><div><div class="group-name">Русская тоска: club по интересам</div><div class="group-subs">40 000 подписчиков</div></div></div>
-      <div class="group"><div class="group-icon">⚖</div><div><div class="group-name">Теория «всё позволено»: за и против</div><div class="group-subs">0 подписчиков (все передумали)</div></div></div>
-      <div class="group"><div class="group-icon">🐑</div><div><div class="group-name">Бессонница: считаем овец вместе</div><div class="group-subs">100 подписчиков (на 101-й все ушли)</div></div></div>
+    <div class="card">
+      <div class="post">
+        <div class="post-header">
+          <img class="post-avatar" src="ivan.jpg" alt="Иван">
+          <div><div class="post-author">Иван Карамазов</div><div class="post-date">вчера в 14:22</div></div>
+        </div>
+        <div class="repost-block">
+          <div class="repost-header">
+            <img class="comment-avatar" src="alesha.jpg" style="width:24px;height:24px;" alt="Алёша">
+            <div class="repost-author">Алёша Карамазов</div>
+          </div>
+          «Брат мой Иван сказал: "Если Бога нет, то всё позволено". Я долго думал над этим. И понял: если Бога нет, то всё позволено — но тогда зачем нам друг друг? Может, в этом и есть ответ».
+        </div>
+        <div class="post-text">Перечитал. Алёша, ты слишком добрый для этого мира. Но я тебя люблю. Не говори никому.</div>
+        <div class="post-actions">
+          <span class="like-btn" data-count="421">❤️ <span class="like-count">421</span></span>
+          <span>💬 2</span><span>↗ Поделиться</span>
+        </div>
+      </div>
+      <div class="comments">
+        <div class="comment">
+          <img class="comment-avatar" src="alesha.jpg" alt="Алёша">
+          <div class="comment-body"><div class="comment-author">Алёша Карамазов</div><div class="comment-text">Ваня, я тоже тебя люблю. И никому не скажу.</div><span class="like-small">❤️ 89</span></div>
+        </div>
+        <div class="comment">
+          <img class="comment-avatar" src="chert.jpg" alt="Чёрт">
+          <div class="comment-body"><div class="comment-author">Чёрт</div><div class="comment-text">Как трогательно. Аж прослезился. Шучу. Не прослезился.</div><span class="like-small">❤️ 53</span></div>
+        </div>
+      </div>
     </div>
-  </div>
 
+    <div class="card">
+      <div class="post">
+        <div class="post-header">
+          <img class="post-avatar" src="ivan.jpg" alt="Иван">
+          <div><div class="post-author">Иван Карамазов</div><div class="post-date">3 дня назад в 04:07</div></div>
+        </div>
+        <div class="post-text">Не могу уснуть. Считал овец — досчитал до ста. На сто первой овце она сказала: «А всё-таки Бога нет». Придётся считать заново.</div>
+        <div class="post-actions">
+          <span class="like-btn" data-count="674">❤️ <span class="like-count">674</span></span>
+          <span>💬 3</span><span>↗ Поделиться</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-title">Фотоальбомы</div>
+      <div class="album-container">
+        <div class="album-card">
+          <div class="album-cover" style="background-image: url('album1.jpg');"></div>
+          <div class="album-title">Москва</div>
+          <div class="album-desc">«Здесь я учился думать. Лучше бы учился молчать.»</div>
+        </div>
+        <div class="album-card">
+          <div class="album-cover" style="background-image: url('album2.jpg');"></div>
+          <div class="album-title">Скотопригоньевск</div>
+          <div class="album-desc">«Дом отца. Дом, где всё началось и всё закончилось.»</div>
+        </div>
+        <div class="album-card">
+          <div class="album-cover" style="background-image: url('album3.jpg');"></div>
+          <div class="album-title">Рукописи</div>
+          <div class="album-desc">«Черновики поэмы. Некоторые страницы порваны. Некоторые — сожжены. Некоторые — переписаны заново. Всё как в жизни.»</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-title">Интересные страницы</div>
+      <div class="groups">
+        <div class="group"><div class="group-icon">🧠</div><div><div class="group-name">Если Бога нет — что дальше?</div><div class="group-subs">1 880 подписчиков</div></div></div>
+        <div class="group"><div class="group-icon">👹</div><div><div class="group-name">Чёрт в деталях: как распознать</div><div class="group-subs">666 подписчиков</div></div></div>
+        <div class="group"><div class="group-icon">📜</div><div><div class="group-name">Великий инквизитор — читать онлайн</div><div class="group-subs">1 565 подписчиков</div></div></div>
+        <div class="group"><div class="group-icon">🍷</div><div><div class="group-name">Русская тоска: club по интересам</div><div class="group-subs">40 000 подписчиков</div></div></div>
+        <div class="group"><div class="group-icon">⚖</div><div><div class="group-name">Теория «всё позволено»: за и против</div><div class="group-subs">0 подписчиков (все передумали)</div></div></div>
+        <div class="group"><div class="group-icon">🐑</div><div><div class="group-name">Бессонница: считаем овец вместе</div><div class="group-subs">100 подписчиков (на 101-й все ушли)</div></div></div>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <script>
