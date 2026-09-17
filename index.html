@@ -5,53 +5,38 @@
 <title>Иван Карамазов — ВКонтакте</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: #edeef0; color: #000; padding: 20px;
-  }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #edeef0; color: #000; padding: 20px; }
   .container { max-width: 700px; margin: 0 auto; }
-  .card {
-    background: #fff; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    margin-bottom: 12px; overflow: hidden;
-  }
+  .card { background: #fff; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 12px; overflow: hidden; }
   .profile-header { padding: 20px; display: flex; gap: 20px; }
-  
-  /* СТИЛИ ДЛЯ ВАШИХ НАСТОЯЩИХ ФОТОГРАФИЙ */
-  .avatar { width: 120px; height: 120px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.2); object-fit: cover; flex-shrink: 0; }
+  .avatar { width: 120px; height: 120px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.2); object-fit: cover; }
   .post-avatar, .comment-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
   .comment-avatar { width: 32px; height: 32px; }
   .comment-reply .comment-avatar { width: 28px; height: 28px; }
-
   .profile-info h1 { font-size: 22px; margin-bottom: 4px; }
   .profile-info .status { color: #626d7a; font-size: 14px; margin-bottom: 12px; font-style: italic; }
   .profile-info .meta { font-size: 14px; color: #626d7a; line-height: 1.7; }
-  .profile-info .meta b { color: #000; }
   .counters { display: flex; gap: 24px; margin-top: 12px; padding-top: 12px; border-top: 1px solid #e7e8ec; }
   .counter { text-align: center; } .counter .num { font-weight: 600; font-size: 16px; } .counter .label { font-size: 12px; color: #939393; }
-  
   .post { padding: 16px 20px; } .post-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
   .post-author { font-weight: 600; font-size: 14px; color: #2a5885; } .post-date { font-size: 12px; color: #939393; }
   .post-text { font-size: 14px; line-height: 1.5; margin-bottom: 12px; white-space: pre-line; }
-  
   .post-actions { display: flex; gap: 20px; padding-top: 10px; border-top: 1px solid #e7e8ec; font-size: 13px; color: #626d7a; }
-  .post-actions .like-btn { cursor: pointer; user-select: none; }
-  
+  .like-btn { cursor: pointer; user-select: none; }
   .comments { background: #f7f8fa; padding: 12px 20px; border-top: 1px solid #e7e8ec; }
   .comment { display: flex; gap: 10px; margin-bottom: 12px; } .comment-body { font-size: 13px; line-height: 1.4; }
   .comment-author { font-weight: 600; color: #2a5885; } .comment-reply { margin-left: 42px; margin-top: 8px; }
   .like-small { color: #939393; font-size: 12px; margin-top: 4px; display: block; }
-  
   .poll { background: #f7f8fa; border-radius: 8px; padding: 14px; margin-bottom: 12px; }
   .poll-question { font-weight: 600; font-size: 14px; margin-bottom: 10px; }
   .poll-option { background: #fff; border: 1px solid #e7e8ec; border-radius: 6px; margin-bottom: 6px; font-size: 13px; position: relative; overflow: hidden; height: 34px; }
   .poll-fill { background: #dae2ea; height: 100%; position: absolute; left: 0; top: 0; z-index: 1; }
   .poll-text-wrapper { position: absolute; width: 100%; height: 100%; top: 0; left: 0; display: flex; justify-content: space-between; align-items: center; padding: 0 12px; z-index: 2; }
-  
   .section-title { padding: 16px 20px 8px; font-size: 13px; font-weight: 600; color: #626d7a; text-transform: uppercase; border-bottom: 1px solid #edeef0; }
   .story-container { padding: 16px 20px; display: flex; gap: 12px; overflow-x: auto; }
-  .story-card { background: #2c3e50; border-radius: 8px; padding: 12px; color: #fff; font-size: 12px; min-width: 140px; height: 180px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: inset 0 -40px 40px rgba(0,0,0,0.6); }
-  
+  .story-card { background: #2c3e50; border-radius: 8px; padding: 12px; color: #fff; font-size: 12px; min-width: 140px; height: 180px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: inset 0 -40px 40px rgba(0,0,0,0.6); background-size: cover; background-position: center; }
   .groups { padding: 10px 20px; } .group { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
+  .group:last-child { border-bottom: none; }
   .group-icon { width: 40px; height: 40px; border-radius: 8px; background: #e7e8ec; display: flex; align-items: center; justify-content: center; font-size: 20px; }
   .group-name { font-size: 14px; font-weight: 500; color: #2a5885; } .group-subs { font-size: 12px; color: #939393; }
 </style>
@@ -59,7 +44,7 @@
 <body>
 <div class="container">
 
-  <!-- ШАПКА ПРОФИЛЯ -->
+  <!-- ШАПКА -->
   <div class="card">
     <div class="profile-header">
       <img class="avatar" src="ivan.jpg" alt="Иван">
@@ -84,11 +69,11 @@
   <div class="card">
     <div class="section-title">Истории</div>
     <div class="story-container">
-      <div class="story-card" style="background-image: url('story1.jpg'); background-size: cover; background-position: center;">
+      <div class="story-card" style="background-image: url('story1.jpg');">
         <span style="opacity:0.8; font-size:10px; text-shadow: 1px 1px 2px #000;">40 мин. назад</span>
         <p style="text-shadow: 1px 1px 3px #000; font-weight: 500;">«Ночь. Стол. Два стакана. Один — мой...»</p>
       </div>
-      <div class="story-card" style="background-image: url('story2.jpg'); background-size: cover; background-position: center;">
+      <div class="story-card" style="background-image: url('story2.jpg');">
         <span style="opacity:0.8; font-size:10px; text-shadow: 1px 1px 2px #000;">5 часов назад</span>
         <p style="text-shadow: 1px 1px 3px #000; font-weight: 500;">«Перечитал поэму. Мрачно? Я же про любовь!»</p>
       </div>
@@ -181,3 +166,25 @@
   <div class="card">
     <div class="section-title">Интересные страницы</div>
     <div class="groups">
+      <div class="group"><div class="group-icon">🧠</div><div><div class="group-name">Если Бога нет — что дальше?</div><div class="group-subs">1 880 подписчиков</div></div></div>
+      <div class="group"><div class="group-icon">🍷</div><div><div class="group-name">Русская тоска: клуб по интересам</div><div class="group-subs">40 000 подписчиков</div></div></div>
+    </div>
+  </div>
+
+<script>
+  document.querySelectorAll('.like-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      let countSpan = this.querySelector('.like-count');
+      let currentCount = parseInt(this.getAttribute('data-count'));
+      if (this.classList.contains('liked')) {
+        this.classList.remove('liked'); this.style.color = '#626d7a'; this.style.fontWeight = 'normal';
+        countSpan.textContent = currentCount;
+      } else {
+        this.classList.add('liked'); this.style.color = '#e64646'; this.style.fontWeight = '600';
+        countSpan.textContent = currentCount + 1;
+      }
+    });
+  });
+</script>
+</body>
+</html>
